@@ -1,0 +1,32 @@
+# Flask
+flask==0.12.2
+
+# Flask 3rd party modules
+flask-webpack==0.1.0
+flask-login==0.4.0
+flask-openid==1.2.5
+flask-mail==0.9.1
+sqlalchemy==1.1.15
+flask-sqlalchemy==2.3.2
+flask-migrate==1.8.0
+sqlalchemy-migrate==0.10.0
+flask-whooshalchemy==0.8
+flask-wtf==0.14
+flask-babel==0.11.2
+flask-script==2.0.5
+flup6==1.1.1
+
+# Configuration
+python-decouple==3.0
+whitenoise==3.2.2
+
+# Python-PostgreSQL Database Adapter
+psycopg2==2.7
+
+# Time zones support
+pytz==2017.3
+
+# Testing and static analysis.
+pytest==2.9.1
+pytest-cov==2.2.1
+flake8==3.5.0
