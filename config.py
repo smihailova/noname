@@ -7,7 +7,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'this-really-needs-to-be-changed'
-    SQLALCHEMY_DATABASE_URI = 'postgresql://smihailova:12345@localhost:5432/noname_db'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://smihailova:password@localhost:5432/smihailova'
     SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'migrations')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
