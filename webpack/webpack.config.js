@@ -17,22 +17,27 @@ module.exports = {
       loader: 'style-loader!css-loader'
     }]
   },
+
   resolve: {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx']
   },
+
   entry: [
     'webpack-dev-server/client?http://127.0.0.0:8080/',
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
     path.join(__dirname, '../app/static/js/src/app.react.js')
   ],
+
   devtool: 'inline-source-map',
+
   output: {
     path: path.join(__dirname, '../app/static/builds/'),
     filename: 'bundle.js',
     publicPath: 'http://0.0.0.0:3000/app/static/builds/',
   },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
@@ -41,6 +46,7 @@ module.exports = {
       }
     })
   ],
+
   devServer: {
     inline: true,
     progress: true,

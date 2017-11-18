@@ -24,6 +24,8 @@ class BaseModel(db.Model):
 
 
 class User(BaseModel, db.Model):
+    __tablename__ = 'User'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(20), nullable=False)
@@ -31,12 +33,16 @@ class User(BaseModel, db.Model):
 
 
 class Topic(BaseModel, db.Model):
+    __tablename__ = 'Topic'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
     publications = db.relationship('Publication', backref='topic', lazy=True)
 
 
 class Publication(BaseModel, db.Model):
+    __tablename__ = 'Publication'
+
     id = db.Column(db.Integer, primary_key=True)
     topic = db.Column(db.Integer, db.ForeignKey('Topic.id'))
     author = db.Column(db.Integer, db.ForeignKey('User.id'))
@@ -47,6 +53,8 @@ class Publication(BaseModel, db.Model):
 
 
 class Comment(BaseModel, db.Model):
+    __tablename__ = 'Comment'
+
     id = db.Column(db.Integer, primary_key=True)
     publication = db.Column(db.Integer, db.ForeignKey('Publication.id'))
     text = db.Column(db.Text)
