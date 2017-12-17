@@ -29,7 +29,7 @@ class User(BaseModel, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(20), nullable=False)
-    publications = db.relationship('Publication', backref='user', lazy=True)
+    publications = db.relationship('Publication', backref='User', lazy=True)
 
 
 class Topic(BaseModel, db.Model):
@@ -37,7 +37,7 @@ class Topic(BaseModel, db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
-    publications = db.relationship('Publication', backref='topic', lazy=True)
+    publications = db.relationship('Publication', backref='Topic', lazy=True)
 
 
 class Publication(BaseModel, db.Model):
@@ -49,7 +49,7 @@ class Publication(BaseModel, db.Model):
     title = db.Column(db.String(100), nullable=False)
     text = db.Column(db.Text)
     published_on = db.Column(db.Date, server_default=db.func.now())
-    comments = db.relationship('Comment', backref='publication', lazy=True)
+    comments = db.relationship('Comment', backref='Publication', lazy=True)
 
 
 class Comment(BaseModel, db.Model):

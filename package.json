@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack/webpack.config.js --progress --colors",
-    "watch": "webpack --config webpack/webpack.config.js --watch",
+    "build": "webpack --progress -d --config webpack/webpack.config.js",
+    "watch": "webpack --progress -d --config webpack/webpack.config.js --watch",
     "test": "./node_modules/karma/bin/karma start webpack/karma.config.js --log-level debug"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
   "repository": {
     "type": "git",
@@ -50,7 +56,7 @@
     "react-hot-loader": "^3.0.0",
     "react-redux": "^5.0.6",
     "react-router": "^3.2.0",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "3.0.0",
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.0",
     "redux-devtools-dock-monitor": "^1.1.2",
@@ -64,6 +70,8 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
+    "jwt-decode": "^2.2.0",
+    "material-ui": "^0.19.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   }

@@ -6,41 +6,37 @@ const webpackConfig = require('./webpack.config.js');
 webpackConfig.entry = {};
 
 module.exports = function (config) {
-  config.set({
-    basePath: '',
+    config.set({
+        basePath: '',
+        singleRun: true,
+        frameworks: ['mocha'],
+        reporters: ['dots'],
+        browsers: ['Chrome'],
+        files: [
+          '../app/static/js/src/__tests__/*-test.js'
+        ],
+        preprocessors: {
+            '../app/static/js/src/__tests__/*-test.js': ['webpack', 'sourcemap'],
+        },
+        webpack: {
+            resolve: {
+                extensions: ['', '.js', '.ts'],
+                modulesDirectories: ['../node_modules', '../app'],
+            },
+            module: {
+                loaders: [{
+                    test: /\.js$/,
+                    loader: 'babel-loader',
+                }],
+            },
+        },
+        webpackMiddleware: {
+            stats: {
+                color: true,
+                chunkModules: false,
+                modules: false,
+            },
+        },
+    });
 
-    frameworks: ['mocha'],
-
-    files: [
-      '../app/static/js/src/__tests__/test_index.js'
-    ],
-
-    exclude: [],
-
-    preprocessors: {
-      '../app/static/js/src/__tests__/test_index.js': ['webpack', 'sourcemap'],
-    },
-
-    reporters: ['progress'],
-
-    port: 9876,
-
-    colors: true,
-
-    logLevel: config.LOG_INFO,
-
-    autoWatch: true,
-    autoWatchBatchDelay: 300,
-
-    browsers: ['Chrome'],
-
-    singleRun: false,
-
-    concurrency: Infinity,
-
-    webpack: webpackConfig,
-    webpackServer: {
-      noInfo: true
-    }
-  });
 };

@@ -12,6 +12,7 @@ flask-migrate==1.8.0
 sqlalchemy-migrate==0.10.0
 flask-whooshalchemy==0.8
 flask-wtf==0.14
+wtforms-alchemy==0.16.5
 flask-babel==0.11.2
 flask-script==2.0.5
 flup6==1.1.1

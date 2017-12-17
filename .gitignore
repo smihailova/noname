@@ -30,3 +30,6 @@ db.sqlite3
 
 # Apple files
 .DS_Store
+
+# Docker folder
+./docker
